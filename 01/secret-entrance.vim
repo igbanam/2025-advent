@@ -5,11 +5,12 @@ import "../00/solution.vim"
 class SecretEntrance extends solution.AbstractSolution
   var dialStart = 50
 
-  def new(inputfile: string)
+  def new(inputfile: string, part: number)
     this.parts = {
       1: (p) => this.Part1(p),
       2: (p) => this.Part2(p)
     }
+    this.currentPart = part
 
     inputfile->this.ReadInput()
     this.ParseInput()
@@ -84,4 +85,4 @@ class SecretEntrance extends solution.AbstractSolution
 
 endclass
 
-echo SecretEntrance.new("input").Solve(2)
+echo SecretEntrance.new("input", 2).Solve()

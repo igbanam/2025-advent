@@ -7,11 +7,12 @@ export interface ISolution
   var parts: dict<func>
   def ReadInput(filename: string)
   def ParseInput()
-  def Solve(part: number): any
+  def Solve(): any
 endinterface
 
 export abstract class AbstractSolution implements ISolution
   var input: any
+  var currentPart: number
   var parts: dict<func>
 
   def ReadInput(filename: string)
@@ -22,8 +23,8 @@ export abstract class AbstractSolution implements ISolution
     throw "Unimplemented"
   enddef
 
-  def Solve(part: number): any
-    return this.input->this.parts[part]()
+  def Solve(): any
+    return this.input->this.parts[this.currentPart]()
   enddef
 endclass
 
